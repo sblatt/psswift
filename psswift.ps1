@@ -149,7 +149,6 @@ function log() {
 
 function getToken {
 	try {
-		##  curl -s -D - -H "Content-Type:application/json" -XPOST http://178.22.65.9:5000/v3/auth/tokens -d '{"auth":{"identity":{"password":{"user":{"domain":{"id":"default"},"password":"ieV8eeJieQuaequ7","name":"picturepark"}},"methods":["password"]},"scope":{"project":{"name":"pictureparkproj","domain":{"id":"default"}}}}}' -o /dev/null | grep "X-Subject-Token"
 		log "Invoke-WebRequest -Uri $auth_url -Body $auth_json -ContentType application/json -Method post" "connect"
 		$res=Invoke-WebRequest -Uri $auth_url -Body $auth_json -ContentType application/json -Method post
 		$script:token=$res.headers['X-Subject-Token']
